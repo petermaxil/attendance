@@ -1,3 +1,5 @@
+Copy Righted from Attendance-System-Face-Recognition(all the based code from here)
+
 # Attendance-System-Face-Recognition - install all packages
 pip3 install -r requirment.txt
 # Attendance-System-Face-Recognition-- migrate the django
