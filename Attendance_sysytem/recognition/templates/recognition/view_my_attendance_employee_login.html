@@ -61,12 +61,12 @@
     <tr>
         <th scope="col">Date</th>
         
-        <th scope="col" >Employee</th>
-        <th scope="col">Present</th>
+        <th scope="col" >Name</th>
+        <th scope="col">Attendance</th>
         <th scope="col">Time in</th>
         <th scope="col">Time out </th>
          <th scope="col">Hours </th>
-         <th scope="col"> Break Hours </th>
+         {% comment %} <th scope="col"> Break Hours </th> {% endcomment %}
     </tr>
 </thead>
 <tbody>
@@ -90,20 +90,20 @@
        {% else %}
        <td> - </td>
        {% endif %}
-       <td> {{item.hours}}</td>
-          <td> {{item.break_hours}}</td>
+       {% comment %} <td> {{item.hours}}</td>
+          <td> {{item.break_hours}}</td> {% endcomment %}
     </tr>
     {% endfor %}
 </tbody>
 </table>
 
 
- <div class="card" style=" margin-top: 5em; margin-bottom: 10em;">
+ {% comment %} <div class="card" style=" margin-top: 5em; margin-bottom: 10em;">
   <img class="card-img-top" src="{% static 'recognition/img/attendance_graphs/employee_login/1.png'%}" alt="Card image cap">
   <div class="card-body">
     <p class="card-text" style="text-align: center;">Number of hours worked each day.</p>
   </div>
-</div>
+</div> {% endcomment %}
 
 
 {% endif %}
