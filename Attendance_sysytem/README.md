@@ -27,6 +27,8 @@ python3 manage.py migrate
 #Attendance-System-Face-Recognition--RUn
 python3 manage.py runserver 127.0.0.1:9000
 
+# restuser password python manage.py changepassword <user_name> or python3 manage.py changepassword <user_name>
+
 
 Attendance-System-Face-Recognition
 This project is a POC web application demonstrating the use of facial recognition for marking attendance built as a part of my PS -1 internship at ViitorCloud Technologies, Ahmedabad. It is a web application that can be used by the company to manage attendance of its employees.

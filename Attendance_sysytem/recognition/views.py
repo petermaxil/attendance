@@ -576,7 +576,7 @@ def add_photos(request):
 
 def mark_your_attendance(request):
 
-	print("fine")
+	#print("fine")
 	detector = dlib.get_frontal_face_detector()
 	
 	predictor = dlib.shape_predictor('face_recognition_data/shape_predictor_68_face_landmarks.dat')   #Add path to the shape predictor ######CHANGE TO RELATIVE PATH LATER
@@ -601,25 +601,29 @@ def mark_your_attendance(request):
 	for i in range(no_of_faces):
 		count[encoder.inverse_transform([i])[0]] = 0
 		present[encoder.inverse_transform([i])[0]] = False
+		#print(encoder.inverse_transform([i])[0])
 
 	
-
+###################################
 	vs = VideoStream(src=0).start()
 	
-	sampleNum = 0
+	#frame = cv2.imread('/home/legacy/Desktop/4.jpg', cv2.IMREAD_COLOR)
+	#cv2.imshow("Detected Circle", frame) 
 	
+	sampleNum = 0
+	#############################################################33
+	#for i in range(1,10):
 	while(True):
-		
+		###########################
 		frame = vs.read()
 		
 		frame = imutils.resize(frame ,width = 800)
+		#gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
 		
 		gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 		
-		faces = detector(gray_frame,0)
-		
-		
-
+		faces = detector(gray_frame,0)	
+	
 
 		for face in faces:
 			print("INFO : inside for loop")
@@ -648,7 +652,8 @@ def mark_your_attendance(request):
 					present[pred] = True
 					log_time[pred] = datetime.datetime.now()
 					count[pred] = count.get(pred,0) + 1
-					print(pred, present[pred], count[pred])
+					#print(pred, present[pred], count[pred])
+					#print(present)
 				cv2.putText(frame, str(person_name)+ str(prob), (x+6,y+h-6), cv2.FONT_HERSHEY_SIMPLEX,0.5,(0,255,0),1)
 
 			else:
@@ -664,7 +669,12 @@ def mark_your_attendance(request):
 
 		#Showing the image in another window
 		#Creates a window with window name "Face" and with the image img
+
+
+		#######################################################################==========
 		cv2.imshow("Mark Attendance - In - Press q to exit",frame)
+
+
 		#Before closing it we need to give a wait command, otherwise the open cv wont work
 		# @params with the millisecond of delay 1
 		#cv2.waitKey(1)
@@ -674,12 +684,21 @@ def mark_your_attendance(request):
 			break
 	
 	#Stoping the videostream
+	#######################################
 	vs.stop()
 
 	# destroying all the windows
+	#####################################################3
 	cv2.destroyAllWindows()
+	#print("presenttttttttttttttt",present)
 	update_attendance_in_db_in(present)
 	return redirect('home')
+
+# 	ine
+# dssdddsf
+# INFO : inside for loop
+# ankur True 2
+# {'George': False, 'Mitali': False, 'ali': False, 'ankur': True, 'bhoomika': False, 'chandrapal': False, 'darshanpatel': False, 'dekts': False, 'dhvanil': False, 'dinesh': False, 'ishvar': False, 'krupali': False, 'palakvc': False, 'prathma': False, 'pratyush': False, 'priya': False, 'sejal': False, 'shijin': False, 'shivani': False, 'shrey': False, 'utkarsh': False, 'vaishali': False, 'vibhuti': False, 'vishal': False, 'vishalr': False, 'vokkant': False}
 
 
 

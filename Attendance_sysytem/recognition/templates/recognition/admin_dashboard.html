@@ -29,6 +29,7 @@ $(document).ready(function(){
   });
 });
 </script>
+
 	
 </head>
 <body>
@@ -36,7 +37,9 @@ $(document).ready(function(){
 -moz-box-shadow:    2px 2px 15px 0px rgba(0, 3, 0, 0.7);
 box-shadow:         2px 2px 15px 0px rgba(0, 3, 0, 0.7);">
     <div class="col-sm-12">
+    
        <a href="{% url 'logout' %}"><h5 class="text-right"><i class="fa fa-user-circle" aria-hidden="true"></i> Logout</h5></a>
+              <a href="{% url 'logout' %}"><h5 class="text-right"><i class="fa fa-user-circle" aria-hidden="true"></i> Students Details</h5></a>
       <h1 class="text-center section-title" style="margin-bottom:2em">Welcome,admin.</h1>
     </div>
      <style>
@@ -121,7 +124,7 @@ box-shadow:         2px 2px 15px 0px rgba(0, 3, 0, 0.7);">
   
 
         <div class="col md-3">
-   <h4 class="text-center att">Register New Employees</h4>
+   <h4 class="text-center att">Register New Student</h4>
         </div>
           <div class="col md-3">
    <h4 class="text-center att">Add Photos</h4>
